@@ -1,9 +1,9 @@
 // @flow
 
-const npsUtils = require('nps-utils');
-const series = npsUtils.series;
-const rimraf = npsUtils.rimraf;
-const concurrent = npsUtils.concurrent;
+const npsUtils = require('nps-utils')
+const series = npsUtils.series
+const rimraf = npsUtils.rimraf
+const concurrent = npsUtils.concurrent
 
 module.exports = {
   scripts: {
@@ -27,4 +27,4 @@ module.exports = {
       ),
     },
   },
-};
+}

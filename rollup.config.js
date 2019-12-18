@@ -1,13 +1,11 @@
-// @flow
+import { minify } from 'uglify-es'
+import { uglify } from 'rollup-plugin-uglify'
+import babel from 'rollup-plugin-babel'
+import replace from 'rollup-plugin-replace'
+import resolve from 'rollup-plugin-node-resolve'
 
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import uglify from 'rollup-plugin-uglify';
-import replace from 'rollup-plugin-replace';
-import { minify } from 'uglify-es';
-
-const name = 'Images';
-const path = 'dist/react-images';
+const name = 'Images'
+const path = 'dist/react-images'
 const globals = {
   classnames: 'classNames',
   glam: 'glam',
@@ -21,33 +19,35 @@ const globals = {
   'a11y-focus-store': 'focusStore',
   'react-transition-group': 'Transition',
   react: 'React',
-};
-import createEnv from 'dotenv';
+}
+import createEnv from 'dotenv'
 
-createEnv.config();
-const external = Object.keys(globals);
+createEnv.config()
+const external = Object.keys(globals)
 const babelOptions = prod => {
   let result = {
-    babelrc: false,
-    presets: [['env', { modules: false }], 'react'],
+    // babelrc: false,
+    presets: [['@babel/preset-env'], '@babel/preset-react'],
+    // presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+    plugins: [],
     plugins: [
-      'transform-class-properties',
-      'transform-object-rest-spread',
-      'external-helpers',
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-object-rest-spread',
+      // '@babel/plugin-external-helpers',
     ],
-  };
-  if (prod) {
-    result.plugins.push('transform-react-remove-prop-types');
   }
-  return result;
-};
+  if (prod) {
+    // result.plugins.push('transform-react-remove-prop-types')
+  }
+  return result
+}
 const injectSecret = () => {
   return replace({
     'process.env.UNSPLASH_API_KEY': JSON.stringify(
       process.env.UNSPLASH_API_KEY
     ),
-  });
-};
+  })
+}
 
 export default [
   {
@@ -86,4 +86,4 @@ export default [
       uglify({}, minify),
     ],
   },
-];
+]
