@@ -36,7 +36,7 @@ module.exports = {
     'react/react-in-jsx-scope': 1,
     'react/self-closing-comp': 1,
     'react/sort-prop-types': 1,
-    semi: 2,
+    semi: ['error', 'never'],
     strict: 0,
   },
-};
+}
