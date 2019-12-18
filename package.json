@@ -1,11 +1,12 @@
 {
-  "name": "react-images",
+  "name": "@jesses/react-images",
   "description": "A mobile-friendly, highly customizable, carousel component for displaying media in ReactJS",
   "version": "1.0.0",
   "author": "Joss Mackison",
   "bugs": {
     "url": "https://github.com/jossmac/react-images/issues"
   },
+  "private": false,
   "dependencies": {
     "a11y-focus-store": "^1.0.0",
     "glam": "^5.0.1",
@@ -29,6 +30,7 @@
     "@babel/preset-react": "^7.7.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "babel-preset-env": "1.7.0",
     "copy-webpack-plugin": "^5.1.1",
     "core-js": "3.5.0",
@@ -59,21 +61,10 @@
     "webpack": "^4.41.3",
     "webpack-dev-server": "^3.9.0"
   },
-  "files": [
-    "dist",
-    "lib",
-    "src"
-  ],
+  "files": ["dist", "lib", "src"],
   "homepage": "https://jossmac.github.io/react-images/",
   "jsnext:main": "dist/react-images.es.js",
-  "keywords": [
-    "carousel",
-    "gallery",
-    "images",
-    "lightbox",
-    "modal",
-    "react"
-  ],
+  "keywords": ["carousel", "gallery", "images", "lightbox", "modal", "react"],
   "license": "MIT",
   "lint-staged": {
     "*.js": "eslint"
