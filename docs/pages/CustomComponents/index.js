@@ -1,20 +1,20 @@
 // @flow
 
-import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
+import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 
-import AlternativeMedia from './AlternativeMedia';
-import ImageViewer from './ImageViewer';
-import { Code, CodeBlock, Title } from '../components';
+import AlternativeMedia from './AlternativeMedia'
+import ImageViewer from './ImageViewer'
+import { Code, CodeBlock, Title } from '../components'
 
 const propFn = k => {
-  const style = { display: 'inline-block', marginBottom: 4, marginRight: 4 };
+  const style = { display: 'inline-block', marginBottom: 4, marginRight: 4 }
   return (
     <span key={k} style={style}>
       <Code>{k}</Code>
     </span>
-  );
-};
+  )
+}
 const commonProps = [
   'carouselProps',
   'currentIndex',
@@ -27,7 +27,7 @@ const commonProps = [
   'interactionIsIdle',
   'trackProps',
   'views',
-];
+]
 
 export default class CustomComponents extends Component<*> {
   render() {
@@ -156,6 +156,6 @@ class Component extends React.Component {
         <ImageViewer {...this.props} />
         <AlternativeMedia />
       </div>
-    );
+    )
   }
 }

@@ -1,25 +1,25 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
+import glam from 'glam'
+import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 
-import type { ProviderProps } from '../../ImageProvider';
-import type { RouterProps } from '../../../src/types';
-import { Code, CodeBlock, Title } from '../components';
-import CarouselExample from './CarouselExample';
-import ModalExample from './ModalExample';
+import type { ProviderProps } from '../../ImageProvider'
+import type { RouterProps } from '../../../src/types'
+import { Code, CodeBlock, Title } from '../components'
+import CarouselExample from './CarouselExample'
+import ModalExample from './ModalExample'
 
 type Props = ProviderProps & RouterProps;
 
 const keyFn = k => {
-  const style = { display: 'inline-block', marginBottom: 4, marginRight: 4 };
+  const style = { display: 'inline-block', marginBottom: 4, marginRight: 4 }
   return (
     <span key={k} style={style}>
       <Code>{k}</Code>
     </span>
-  );
-};
+  )
+}
 const carouselKeys = [
   'container',
   'footer',
@@ -32,8 +32,8 @@ const carouselKeys = [
   'navigationPrev',
   'navigationNext',
   'view',
-];
-const modalKeys = ['blanket', 'dialog', 'positioner'];
+]
+const modalKeys = ['blanket', 'dialog', 'positioner']
 
 export default class CustomStyles extends Component<Props> {
   render() {
@@ -119,6 +119,6 @@ const App = () => (
         <CarouselExample {...this.props} />
         <ModalExample {...this.props} />
       </div>
-    );
+    )
   }
 }

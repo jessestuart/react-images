@@ -1,12 +1,12 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component } from 'react';
+import glam from 'glam'
+import React, { Component } from 'react'
 
-import Carousel, { Modal, ModalGateway } from '../../../src/components';
-import type { ProviderProps } from '../../ImageProvider';
-import { Code, FooterCaption, Heading } from '../components';
-import { getAltText } from '../formatters';
+import Carousel, { Modal, ModalGateway } from '../../../src/components'
+import type { ProviderProps } from '../../ImageProvider'
+import { Code, FooterCaption, Heading } from '../components'
+import { getAltText } from '../formatters'
 
 type State = { lightboxIsOpen: boolean };
 
@@ -15,11 +15,11 @@ export default class ModalExample extends Component<ProviderProps, State> {
   toggleLightbox = () => {
     this.setState(state => ({
       lightboxIsOpen: !state.lightboxIsOpen,
-    }));
+    }))
   };
   render() {
-    const { images, isLoading } = this.props;
-    const { lightboxIsOpen } = this.state;
+    const { images, isLoading } = this.props
+    const { lightboxIsOpen } = this.state
 
     return (
       <div>
@@ -94,6 +94,6 @@ export default class ModalExample extends Component<ProviderProps, State> {
           ) : null}
         </ModalGateway>
       </div>
-    );
+    )
   }
 }

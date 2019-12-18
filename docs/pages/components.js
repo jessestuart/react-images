@@ -1,19 +1,19 @@
 // @flow
 // @jsx glam
 
-import glam from 'glam';
-import React, { type Node } from 'react';
+import glam from 'glam'
+import React, { type Node } from 'react'
 
 import SyntaxHighlighter, {
   registerLanguage,
-} from 'react-syntax-highlighter/prism-light';
-import jsx from 'react-syntax-highlighter/languages/prism/jsx';
-import { tomorrow } from 'react-syntax-highlighter/styles/prism';
+} from 'react-syntax-highlighter/prism-light'
+import jsx from 'react-syntax-highlighter/languages/prism/jsx'
+import { tomorrow } from 'react-syntax-highlighter/styles/prism'
 
-import { colors } from '../theme';
-import { smallDevice } from '../utils';
+import { colors } from '../theme'
+import { smallDevice } from '../utils'
 
-registerLanguage('jsx', jsx);
+registerLanguage('jsx', jsx)
 
 // ==============================
 // Title
@@ -29,15 +29,15 @@ export const Title = (props: any) => (
     }}
     {...props}
   />
-);
+)
 
 // ==============================
 // Heading
 // ==============================
 
 function headingLink(src) {
-  const base = 'https://github.com/jossmac/react-images/tree/v1/docs/pages';
-  return `${base}${src}`;
+  const base = 'https://github.com/jossmac/react-images/tree/v1/docs/pages'
+  return `${base}${src}`
 }
 
 export const Heading = ({ source, ...props }: { source: string }) => (
@@ -70,7 +70,7 @@ export const Heading = ({ source, ...props }: { source: string }) => (
       </a>
     ) : null}
   </div>
-);
+)
 
 // ==============================
 // Code
@@ -89,7 +89,7 @@ export const Code = (props: any) => (
     }}
     {...props}
   />
-);
+)
 
 export const CodeBlock = ({ children, ...props }: { children: Node }) => {
   return (
@@ -107,15 +107,15 @@ export const CodeBlock = ({ children, ...props }: { children: Node }) => {
     >
       {children}
     </SyntaxHighlighter>
-  );
-};
+  )
+}
 
 // ==============================
 // Carousel Components
 // ==============================
 
 const Author = ({ isModal, ...props }) => {
-  const Tag = props.href ? 'a' : 'span';
+  const Tag = props.href ? 'a' : 'span'
 
   return (
     <Tag
@@ -128,12 +128,12 @@ const Author = ({ isModal, ...props }) => {
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
 export const FooterCaption = (props: ViewType) => {
-  const { currentView, isModal } = props;
-  const { caption, author } = currentView;
+  const { currentView, isModal } = props
+  const { caption, author } = currentView
 
   return (
     <span>
@@ -149,5 +149,5 @@ export const FooterCaption = (props: ViewType) => {
       {author && caption ? ' - ' : null}
       {caption}
     </span>
-  );
-};
+  )
+}

@@ -1,9 +1,9 @@
 // @flow
-import React, { type ElementType } from 'react';
-import { Transition } from 'react-transition-group';
+import React, { type ElementType } from 'react'
+import { Transition } from 'react-transition-group'
 
-const easing = 'cubic-bezier(0.23, 1, 0.32, 1)'; // easeOutQuint
-const verticalOffset = 40;
+const easing = 'cubic-bezier(0.23, 1, 0.32, 1)' // easeOutQuint
+const verticalOffset = 40
 
 type func = () => void;
 type Props = {
@@ -26,17 +26,17 @@ export const Fade = ({
   innerProps: originalProps,
   ...props
 }: Props) => {
-  const enter = 300;
-  const exit = 500;
+  const enter = 300
+  const exit = 500
   const fadeStyle = {
     transition: 'opacity 200ms',
     opacity: 0,
-  };
+  }
   const fadeTransition = {
     entering: { opacity: 0 },
     entered: { opacity: 1 },
     exiting: { opacity: 0, transitionDuration: `${exit}ms` },
-  };
+  }
 
   return (
     <Transition
@@ -56,15 +56,15 @@ export const Fade = ({
             ...fadeStyle,
             ...fadeTransition[status],
           },
-        };
+        }
 
-        if (status === 'exited') return null;
+        if (status === 'exited') return null
 
-        return <Tag innerProps={innerProps} {...props} />;
+        return <Tag innerProps={innerProps} {...props} />
       }}
     </Transition>
-  );
-};
+  )
+}
 
 // ==============================
 // Slide Up
@@ -78,13 +78,13 @@ export const SlideUp = ({
   innerProps: originalProps,
   ...props
 }: Props) => {
-  const enter = 300;
-  const exit = 500;
-  const restingTransform = 'translate3d(0, 0, 0)';
+  const enter = 300
+  const exit = 500
+  const restingTransform = 'translate3d(0, 0, 0)'
   const slideStyle = {
     transition: `transform ${enter}ms ${easing}, opacity ${enter}ms ${easing}`,
     transform: restingTransform,
-  };
+  }
   const slideTransition = {
     entering: {
       opacity: 0,
@@ -99,7 +99,7 @@ export const SlideUp = ({
       transform: `translate3d(0, ${verticalOffset}px, 0) scale(0.9)`,
       transition: `transform ${exit}ms ${easing}, opacity ${exit}ms ${easing}`,
     },
-  };
+  }
 
   return (
     <Transition
@@ -112,7 +112,7 @@ export const SlideUp = ({
       unmountOnExit
     >
       {status => {
-        if (status === 'exited') return null;
+        if (status === 'exited') return null
 
         const innerProps = {
           ...originalProps,
@@ -120,10 +120,10 @@ export const SlideUp = ({
             ...slideStyle,
             ...slideTransition[status],
           },
-        };
+        }
 
-        return <Tag innerProps={innerProps} {...props} />;
+        return <Tag innerProps={innerProps} {...props} />
       }}
     </Transition>
-  );
-};
+  )
+}

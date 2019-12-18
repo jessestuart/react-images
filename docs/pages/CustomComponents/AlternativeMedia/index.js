@@ -1,22 +1,22 @@
 // @flow
 
-import React, { Component } from 'react';
-import Carousel, { Modal, ModalGateway } from '../../../../src/components';
+import React, { Component } from 'react'
+import Carousel, { Modal, ModalGateway } from '../../../../src/components'
 
-import { videos } from './data';
-import { Poster, Posters } from './Poster';
-import View from './View';
-import { Code, Heading } from '../../components';
+import { videos } from './data'
+import { Poster, Posters } from './Poster'
+import View from './View'
+import { Code, Heading } from '../../components'
 
 type Props = {};
 type State = { currentModal: number | null };
 export default class AlternativeMedia extends Component<Props, State> {
   state = { currentModal: null };
   toggleModal = (index: number | null = null) => {
-    this.setState({ currentModal: index });
+    this.setState({ currentModal: index })
   };
   render() {
-    const { currentModal } = this.state;
+    const { currentModal } = this.state
 
     return (
       <div>
@@ -63,6 +63,6 @@ export default class AlternativeMedia extends Component<Props, State> {
           ) : null}
         </ModalGateway>
       </div>
-    );
+    )
   }
 }

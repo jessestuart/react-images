@@ -1,13 +1,13 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component } from 'react';
+import glam from 'glam'
+import React, { Component } from 'react'
 
-import { type ProviderProps } from '../../ImageProvider';
-import { Code, CodeBlock, Heading, Title } from '../components';
-import PrettyProps from '../../PrettyProps';
-import GalleryExample from './GalleryExample';
-import { carouselProps, modalProps } from './props';
+import { type ProviderProps } from '../../ImageProvider'
+import { Code, CodeBlock, Heading, Title } from '../components'
+import PrettyProps from '../../PrettyProps'
+import GalleryExample from './GalleryExample'
+import { carouselProps, modalProps } from './props'
 
 export default class Home extends Component<ProviderProps> {
   render() {
@@ -94,6 +94,6 @@ class Component extends React.Component {
         <h2>Modal Props</h2>
         {modalProps.map(p => <PrettyProps key={p.name} {...p} />)}
       </div>
-    );
+    )
   }
 }

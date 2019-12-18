@@ -1,12 +1,12 @@
 // @flow
 // @jsx glam
-import React, { type Node } from 'react';
-import glam from 'glam';
+import React, { type Node } from 'react'
+import glam from 'glam'
 
-import { Button, Nav } from '../primitives';
-import { type PropsWithStyles } from '../types';
-import { className, isTouch } from '../utils';
-import { ChevronLeft, ChevronRight } from './svg';
+import { Button, Nav } from '../primitives'
+import { type PropsWithStyles } from '../types'
+import { className, isTouch } from '../utils'
+import { ChevronLeft, ChevronRight } from './svg'
 
 // ==============================
 // Navigation
@@ -26,10 +26,10 @@ export const navigationCSS = ({ interactionIsIdle }: NavState) => ({
   justifyContent: 'space-between',
   opacity: interactionIsIdle ? 0 : 1,
   transition: 'opacity 300ms',
-});
+})
 
 export const Navigation = (props: NavProps) => {
-  const { children, getStyles, isFullscreen, isModal, showNavigationOnTouchDevice } = props;
+  const { children, getStyles, isFullscreen, isModal, showNavigationOnTouchDevice } = props
   return !isTouch() || (isTouch() && showNavigationOnTouchDevice) ? (
     <Nav
       css={getStyles('navigation', props)}
@@ -37,14 +37,14 @@ export const Navigation = (props: NavProps) => {
     >
       {children}
     </Nav>
-  ) : null;
-};
+  ) : null
+}
 
 // ==============================
 // Nav Item
 // ==============================
 
-const BUTTON_SIZE = 50;
+const BUTTON_SIZE = 50
 
 type ItemState = { align: 'left' | 'right' };
 type ItemProps = ItemState &
@@ -81,11 +81,11 @@ export const navigationItemCSS = ({ align }: ItemState) => ({
   '&:active': {
     background: 'rgba(255, 255, 255, 0.2)',
   },
-});
+})
 
-export const navigationPrevCSS = navigationItemCSS;
+export const navigationPrevCSS = navigationItemCSS
 export const NavigationPrev = (props: ItemProps) => {
-  const { children = <ChevronLeft size={48} />, getStyles, innerProps } = props;
+  const { children = <ChevronLeft size={48} />, getStyles, innerProps } = props
 
   return (
     <Button
@@ -95,16 +95,16 @@ export const NavigationPrev = (props: ItemProps) => {
     >
       {children}
     </Button>
-  );
-};
+  )
+}
 
-export const navigationNextCSS = navigationItemCSS;
+export const navigationNextCSS = navigationItemCSS
 export const NavigationNext = (props: ItemProps) => {
   const {
     children = <ChevronRight size={48} />,
     getStyles,
     innerProps,
-  } = props;
+  } = props
 
   return (
     <Button
@@ -114,5 +114,5 @@ export const NavigationNext = (props: ItemProps) => {
     >
       {children}
     </Button>
-  );
-};
+  )
+}

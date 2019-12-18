@@ -1,11 +1,11 @@
 // @flow
 
-import Container from './Container';
-import Footer, { FooterCaption, FooterCount } from './Footer';
-import Header, { HeaderClose, HeaderFullscreen } from './Header';
-import { Navigation, NavigationPrev, NavigationNext } from './Navigation';
-import { Blanket, Dialog, Positioner } from './Modal/styled';
-import View from './View';
+import Container from './Container'
+import Footer, { FooterCaption, FooterCount } from './Footer'
+import Header, { HeaderClose, HeaderFullscreen } from './Header'
+import { Navigation, NavigationPrev, NavigationNext } from './Navigation'
+import { Blanket, Dialog, Positioner } from './Modal/styled'
+import View from './View'
 
 export type CarouselComponents = {
   Container: typeof Container,
@@ -33,14 +33,14 @@ export const carouselComponents: CarouselComponents = {
   NavigationPrev: NavigationPrev,
   NavigationNext: NavigationNext,
   View: View,
-};
+}
 
 export const defaultCarouselComponents = (
   providedComponents?: CarouselComponents
 ) => ({
   ...carouselComponents,
   ...providedComponents,
-});
+})
 
 // ==============================
 // Modal
@@ -56,11 +56,11 @@ export const modalComponents: ModalComponents = {
   Blanket: Blanket,
   Positioner: Positioner,
   Dialog: Dialog,
-};
+}
 
 export const defaultModalComponents = (
   providedComponents?: ModalComponents
 ) => ({
   ...modalComponents,
   ...providedComponents,
-});
+})

@@ -1,16 +1,16 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component } from 'react';
+import glam from 'glam'
+import React, { Component } from 'react'
 
-import Carousel from '../../../src/components';
-import type { ProviderProps } from '../../ImageProvider';
-import { Code, FooterCaption, Heading } from '../components';
-import { getAltText } from '../formatters';
+import Carousel from '../../../src/components'
+import type { ProviderProps } from '../../ImageProvider'
+import { Code, FooterCaption, Heading } from '../components'
+import { getAltText } from '../formatters'
 
 export default class CarouselExample extends Component<ProviderProps> {
   render() {
-    const { images, isLoading } = this.props;
+    const { images, isLoading } = this.props
 
     return (
       <div>
@@ -77,6 +77,6 @@ export default class CarouselExample extends Component<ProviderProps> {
           />
         ) : null}
       </div>
-    );
+    )
   }
 }
