@@ -85,6 +85,10 @@
     "react-dom": "^15.3.0 || ^16.2.0"
   },
   "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "repository": {
     "url": "https://github.com/jossmac/react-images"
   },
