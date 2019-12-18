@@ -26,9 +26,12 @@ createEnv.config()
 const external = Object.keys(globals)
 const babelOptions = prod => {
   let result = {
-    // babelrc: false,
-    presets: [['@babel/preset-env'], '@babel/preset-react'],
-    // presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+    babelrc: false,
+    presets: [
+      ['@babel/preset-env', { modules: false }],
+      '@babel/preset-flow',
+      '@babel/preset-react',
+    ],
     plugins: [],
     plugins: [
       '@babel/plugin-proposal-class-properties',
