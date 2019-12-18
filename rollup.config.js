@@ -20,6 +20,7 @@ const globals = {
   'react-transition-group': 'Transition',
   react: 'React',
 }
+
 import createEnv from 'dotenv'
 
 createEnv.config()
@@ -40,10 +41,11 @@ const babelOptions = prod => {
     ],
   }
   if (prod) {
-    // result.plugins.push('transform-react-remove-prop-types')
+    result.plugins.push('transform-react-remove-prop-types')
   }
   return result
 }
+
 const injectSecret = () => {
   return replace({
     'process.env.UNSPLASH_API_KEY': JSON.stringify(
