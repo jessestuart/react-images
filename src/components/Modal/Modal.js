@@ -1,27 +1,29 @@
 // @flow
 // @jsx glam
-import React, { cloneElement, Component } from 'react'
-import glam from 'glam'
 import Fullscreen from 'react-full-screen'
+import React, { cloneElement, Component } from 'react'
 import ScrollLock from 'react-scrolllock'
 import focusStore from 'a11y-focus-store'
+
+import { type CarouselType } from '../Carousel'
+import { Fade, SlideUp } from './Animation'
 import {
   defaultModalComponents,
   type ModalComponents,
 } from '../defaultComponents'
-import { Fade, SlideUp } from './Animation'
-import { type CarouselType } from '../Carousel'
 import { defaultModalStyles, type ModalStylesConfig } from '../../styles'
 import { isTouch, className } from '../../utils'
 
-type MouseOrKeyboardEvent = MouseEvent | KeyboardEvent;
-export type CloseType = (event: MouseOrKeyboardEvent) => void;
+type MouseOrKeyboardEvent = MouseEvent | KeyboardEvent
+
+export type CloseType = (event: MouseOrKeyboardEvent) => void
+
 export type ModalProps = {
   allowFullscreen: boolean,
   isFullscreen: boolean,
   onClose: CloseType,
   toggleFullscreen: any => void,
-};
+}
 
 export type Props = {
   /* Enable/disable the ability to "fullscreen" the dialog */
@@ -43,19 +45,22 @@ export type Props = {
   onClose: CloseType,
   /* Style modifier methods */
   styles: ModalStylesConfig,
-};
-type State = { isFullscreen: boolean };
+}
+
+type State = { isFullscreen: boolean }
+
 const defaultProps = {
   allowFullscreen: !isTouch(),
   closeOnBackdropClick: true,
   closeOnEsc: true,
   styles: {},
 }
-class Modal extends Component<Props, State> {
-  commonProps: any; // TODO
-  components: ModalComponents;
 
-  static defaultProps = defaultProps;
+class Modal extends Component<Props, State> {
+  commonProps: any // TODO
+  components: ModalComponents
+
+  static defaultProps = defaultProps
 
   constructor(props: Props) {
     super(props)
@@ -76,18 +81,21 @@ class Modal extends Component<Props, State> {
   modalDidMount = () => {
     document.addEventListener('keyup', this.handleKeyUp)
     focusStore.storeFocus()
-  };
+  }
+
   modalWillUnmount = () => {
     document.removeEventListener('keyup', this.handleKeyUp)
     focusStore.restoreFocus()
-  };
+  }
 
   cacheComponents = (comps?: ModalComponents) => {
     this.components = defaultModalComponents(comps)
-  };
+  }
+
   handleFullscreenChange = (isFullscreen: boolean) => {
     this.setState({ isFullscreen })
-  };
+  }
+
   handleKeyUp = (event: KeyboardEvent) => {
     const { allowFullscreen, closeOnEsc } = this.props
     const { isFullscreen } = this.state
@@ -100,21 +108,26 @@ class Modal extends Component<Props, State> {
 
     // close on escape when not fullscreen
     if (allowClose) this.handleClose(event)
-  };
+  }
+
   handleBackdropClick = (event: MouseEvent) => {
     const { closeOnBackdropClick } = this.props
 
     if (
-      !event.target.classList.contains(className('view')) ||
+      // $FlowFixMe
+      event.target.classList.contains(className('view')) ||
       !closeOnBackdropClick
-    )
-      {return}
+    ) {
+      return
+    }
 
     this.handleClose(event)
-  };
+  }
+
   toggleFullscreen = () => {
     this.setState(state => ({ isFullscreen: !state.isFullscreen }))
-  };
+  }
+
   handleClose = (event: MouseOrKeyboardEvent) => {
     const { onClose } = this.props
     const { isFullscreen } = this.state
@@ -126,14 +139,15 @@ class Modal extends Component<Props, State> {
 
     // call the consumer's onClose func
     onClose(event)
-  };
+  }
 
   getStyles = (key: string, props: {}): {} => {
     const base = defaultModalStyles[key](props)
     base.boxSizing = 'border-box'
     const custom = this.props.styles[key]
     return custom ? custom(base, props) : base
-  };
+  }
+
   getCommonProps() {
     const { isFullscreen } = this.state
 
@@ -143,6 +157,7 @@ class Modal extends Component<Props, State> {
       modalProps: this.props,
     }
   }
+
   render() {
     const { Blanket, Positioner, Dialog } = this.components
     const { allowFullscreen, children } = this.props
@@ -187,5 +202,7 @@ class Modal extends Component<Props, State> {
     )
   }
 }
+
 export default Modal
-export type ModalType = typeof Modal;
+
+export type ModalType = typeof Modal

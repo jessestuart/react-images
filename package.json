@@ -6,7 +6,10 @@
   "bugs": {
     "url": "https://github.com/jossmac/react-images/issues"
   },
-  "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "dependencies": {
     "a11y-focus-store": "^1.0.0",
     "glam": "^5.0.1",
