@@ -1,14 +1,14 @@
 // @flow
 // @jsx glam
 
-import glam from 'glam';
-import React, { Component } from 'react';
-import Carousel, { Modal, ModalGateway } from '../../../../src/components';
+import glam from 'glam'
+import React, { Component } from 'react'
+import Carousel, { Modal, ModalGateway } from '../../../../src/components'
 
-import { Heading } from '../../components';
-import { colors } from '../../../theme';
-import { largeDevice } from '../../../utils';
-import { Header } from './components';
+import { Heading } from '../../components'
+import { colors } from '../../../theme'
+import { largeDevice } from '../../../utils'
+import { Header } from './components'
 
 const navButtonStyles = base => ({
   ...base,
@@ -25,18 +25,18 @@ const navButtonStyles = base => ({
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.14)',
     transform: 'scale(0.96)',
   },
-});
+})
 
 type Props = {};
 type State = { currentModal: number | null };
 export default class ImageViewer extends Component<Props, State> {
   state = { currentModal: null };
   toggleModal = (index: number | null = null) => {
-    this.setState({ currentModal: index });
+    this.setState({ currentModal: index })
   };
   render() {
-    const { images, isLoading } = this.props;
-    const { currentModal } = this.state;
+    const { images, isLoading } = this.props
+    const { currentModal } = this.state
 
     return (
       <div>
@@ -113,11 +113,11 @@ export default class ImageViewer extends Component<Props, State> {
           ) : null}
         </ModalGateway>
       </div>
-    );
+    )
   }
 }
 
-const gutter = 2;
+const gutter = 2
 
 const FilmStrip = (props: any) => (
   <div
@@ -134,7 +134,7 @@ const FilmStrip = (props: any) => (
     }}
     {...props}
   />
-);
+)
 
 const Image = (props: any) => (
   <div
@@ -154,4 +154,4 @@ const Image = (props: any) => (
     }}
     {...props}
   />
-);
+)

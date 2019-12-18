@@ -1,10 +1,10 @@
 // @flow
 // @jsx glam
-import React from 'react';
-import glam from 'glam';
-import { Div } from '../../primitives';
-import { type PropsWithStyles } from '../../types';
-import { className } from '../../utils';
+import React from 'react'
+import glam from 'glam'
+import { Div } from '../../primitives'
+import { type PropsWithStyles } from '../../types'
+import { className } from '../../utils'
 
 // ==============================
 // Blanket
@@ -24,18 +24,18 @@ export const blanketCSS = ({ isFullscreen }: BlanketState) => ({
   right: 0,
   top: 0,
   zIndex: 1,
-});
+})
 
 export const Blanket = (props: BlanketProps) => {
-  const { getStyles, innerProps, isFullscreen } = props;
+  const { getStyles, innerProps, isFullscreen } = props
   return (
     <Div
       css={getStyles('blanket', props)}
       className={className('blanket', { isFullscreen })}
       {...innerProps}
     />
-  );
-};
+  )
+}
 
 // ==============================
 // Positioner
@@ -58,10 +58,10 @@ export const positionerCSS = () => ({
   right: 0,
   top: 0,
   zIndex: 1,
-});
+})
 
 export const Positioner = (props: PositionerProps) => {
-  const { children, getStyles, innerProps, isFullscreen } = props;
+  const { children, getStyles, innerProps, isFullscreen } = props
   return (
     <Div
       css={getStyles('positioner', props)}
@@ -70,8 +70,8 @@ export const Positioner = (props: PositionerProps) => {
     >
       {children}
     </Div>
-  );
-};
+  )
+}
 
 // ==============================
 // Dialog
@@ -86,10 +86,10 @@ type DialogProps = DialogState &
 
 export const dialogCSS = () => ({
   width: '100%'
-});
+})
 
 export const Dialog = (props: DialogProps) => {
-  const { children, getStyles, innerProps, isFullscreen } = props;
+  const { children, getStyles, innerProps, isFullscreen } = props
   return (
     <Div
       css={getStyles('dialog', props)}
@@ -98,5 +98,5 @@ export const Dialog = (props: DialogProps) => {
     >
       {children}
     </Div>
-  );
-};
+  )
+}

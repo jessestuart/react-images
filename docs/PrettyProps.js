@@ -1,18 +1,18 @@
 // @flow
 // @jsx glam
 
-import glam from 'glam';
-import React, { type Node } from 'react';
+import glam from 'glam'
+import React, { type Node } from 'react'
 
 import SyntaxHighlighter, {
   registerLanguage,
-} from 'react-syntax-highlighter/prism-light';
-import typescript from 'react-syntax-highlighter/languages/prism/typescript';
-import { coy } from 'react-syntax-highlighter/styles/prism';
+} from 'react-syntax-highlighter/prism-light'
+import typescript from 'react-syntax-highlighter/languages/prism/typescript'
+import { coy } from 'react-syntax-highlighter/styles/prism'
 
-import { colors } from './theme';
+import { colors } from './theme'
 
-registerLanguage('typescript', typescript);
+registerLanguage('typescript', typescript)
 
 type Props = {
   defaultValue: any,
@@ -40,8 +40,8 @@ const TypeDefinition = ({ children }: { children: Node }) => {
     >
       {children}
     </SyntaxHighlighter>
-  );
-};
+  )
+}
 
 const Heading = props => (
   <h4
@@ -53,7 +53,7 @@ const Heading = props => (
     }}
     {...props}
   />
-);
+)
 
 const HeadingDefault = props => (
   <code
@@ -62,7 +62,7 @@ const HeadingDefault = props => (
     }}
     {...props}
   />
-);
+)
 
 const HeadingRequired = props => (
   <span
@@ -71,7 +71,7 @@ const HeadingRequired = props => (
     }}
     {...props}
   />
-);
+)
 
 const code = {
   borderRadius: 3,
@@ -80,7 +80,7 @@ const code = {
   margin: 0,
   padding: '0.2em 0.4em',
   whiteSpace: 'nowrap',
-};
+}
 
 const HeadingType = props => (
   <span
@@ -90,7 +90,7 @@ const HeadingType = props => (
     }}
     {...props}
   />
-);
+)
 
 const HeadingName = props => (
   <span
@@ -101,21 +101,21 @@ const HeadingName = props => (
     }}
     {...props}
   />
-);
+)
 
 const PrettyProps = (props: Props) => {
-  let typeName = props.type;
+  let typeName = props.type
   if (typeName === 'union') {
-    typeName = 'union';
+    typeName = 'union'
   }
 
-  const defaultValue = props.defaultValue ? props.defaultValue : null;
+  const defaultValue = props.defaultValue ? props.defaultValue : null
   const description =
     typeof props.description === 'string' ? (
       <p>{props.description}</p>
     ) : (
       props.description
-    );
+    )
 
   return (
     <div>
@@ -134,7 +134,7 @@ const PrettyProps = (props: Props) => {
         <TypeDefinition>{props.typeDefinition}</TypeDefinition>
       ) : null}
     </div>
-  );
-};
+  )
+}
 
-export default PrettyProps;
+export default PrettyProps

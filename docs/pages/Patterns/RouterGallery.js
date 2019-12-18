@@ -1,30 +1,30 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component } from 'react';
+import glam from 'glam'
+import React, { Component } from 'react'
 
-import Carousel from '../../../src/components';
-import type { ProviderProps } from '../../ImageProvider';
-import type { RouterProps } from '../../../src/types';
-import { Code, Heading } from '../components';
+import Carousel from '../../../src/components'
+import type { ProviderProps } from '../../ImageProvider'
+import type { RouterProps } from '../../../src/types'
+import { Code, Heading } from '../components'
 
 type Props = ProviderProps & RouterProps;
 
 export default class RouterGallery extends Component<Props> {
   handleViewChange = (currentIndex: number) => {
-    const { history } = this.props;
+    const { history } = this.props
 
     // do not influence history on browser back/forward
-    if (history.action === 'POP') return;
+    if (history.action === 'POP') return
 
-    history.push(`/patterns/${currentIndex.toString()}`);
+    history.push(`/patterns/${currentIndex.toString()}`)
   };
   getCurrentView() {
-    const { match } = this.props;
-    return match ? parseInt(match.params.currentIndex, 10) || 0 : 0;
+    const { match } = this.props
+    return match ? parseInt(match.params.currentIndex, 10) || 0 : 0
   }
   render() {
-    const { images, isLoading } = this.props;
+    const { images, isLoading } = this.props
 
     return (
       <div>
@@ -52,6 +52,6 @@ export default class RouterGallery extends Component<Props> {
           />
         ) : null}
       </div>
-    );
+    )
   }
 }

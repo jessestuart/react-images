@@ -1,10 +1,10 @@
 // @flow
 // @jsx glam
 
-import glam from 'glam';
-import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import glam from 'glam'
+import React, { Component } from 'react'
+import { HashRouter, Route, Switch } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import {
   Accessibility,
@@ -14,9 +14,9 @@ import {
   NoMatch,
   Patterns,
   Thanks,
-} from '../pages';
-import ImageRoute from '../ImageRoute';
-import withImages, { type ProviderProps } from '../ImageProvider';
+} from '../pages'
+import ImageRoute from '../ImageRoute'
+import withImages, { type ProviderProps } from '../ImageProvider'
 import {
   AppContainer,
   PageContent,
@@ -24,7 +24,7 @@ import {
   Nav,
   NavItem,
   ScrollRestoration,
-} from './components';
+} from './components'
 
 const links = [
   { icon: '🌄', label: 'Intro', path: '/' },
@@ -33,12 +33,12 @@ const links = [
   { icon: '💖', label: 'Accessibility', path: '/accessibility' },
   { icon: '🤖', label: 'Patterns', path: '/patterns' },
   { icon: '🎉', label: 'Thanks', path: '/thanks' },
-];
+]
 
 class App extends Component<*> {
   routeProps: ProviderProps;
   render() {
-    const routeProps = (this.routeProps = this.props);
+    const routeProps = (this.routeProps = this.props)
     return (
       <HashRouter>
         <ScrollRestoration>
@@ -50,7 +50,7 @@ class App extends Component<*> {
                     const isSelected =
                       l.path.length > 1
                         ? location.pathname.includes(l.path)
-                        : location.pathname === l.path;
+                        : location.pathname === l.path
                     return (
                       <NavItem
                         icon={l.icon}
@@ -60,7 +60,7 @@ class App extends Component<*> {
                       >
                         {l.label}
                       </NavItem>
-                    );
+                    )
                   })}
                 </Nav>
               )}
@@ -107,8 +107,8 @@ class App extends Component<*> {
           </AppContainer>
         </ScrollRestoration>
       </HashRouter>
-    );
+    )
   }
 }
 
-export default withImages(App);
+export default withImages(App)

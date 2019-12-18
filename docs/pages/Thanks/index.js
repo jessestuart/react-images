@@ -1,11 +1,11 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component } from 'react';
+import glam from 'glam'
+import React, { Component } from 'react'
 
-import { Title } from '../components';
-import { features } from './data';
-import { colors } from '../../theme';
+import { Title } from '../components'
+import { features } from './data'
+import { colors } from '../../theme'
 
 const Hr = () => (
   <hr
@@ -17,7 +17,7 @@ const Hr = () => (
       marginTop: '2em',
     }}
   />
-);
+)
 
 export default class Thanks extends Component<*> {
   render() {
@@ -55,7 +55,7 @@ export default class Thanks extends Component<*> {
           community!
         </p>
       </div>
-    );
+    )
   }
 }
 
@@ -68,4 +68,4 @@ const List = ({ items }: FeaturesType) => (
       </li>
     ))}
   </ul>
-);
+)

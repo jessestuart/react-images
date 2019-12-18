@@ -1,8 +1,8 @@
 // @flow
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
-const viewPagerUrl = 'https://github.com/souporserious/react-view-pager';
+const viewPagerUrl = 'https://github.com/souporserious/react-view-pager'
 
 export const carouselProps = [
   {
@@ -222,7 +222,7 @@ Array<{
   },
 }>`,
   },
-];
+]
 
 export const modalProps = [
   {
@@ -276,4 +276,4 @@ type StyleFn = (StyleObj, State) => StyleObj
   positioner: StyleFn,
 }`,
   },
-];
+]

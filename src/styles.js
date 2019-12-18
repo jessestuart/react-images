@@ -1,30 +1,30 @@
 // @flow
 
 // Carousel
-import { containerCSS } from './components/Container';
+import { containerCSS } from './components/Container'
 import {
   navigationCSS,
   navigationPrevCSS,
   navigationNextCSS,
-} from './components/Navigation';
-import { viewCSS } from './components/View';
+} from './components/Navigation'
+import { viewCSS } from './components/View'
 import {
   headerCSS,
   headerCloseCSS,
   headerFullscreenCSS,
-} from './components/Header';
+} from './components/Header'
 import {
   footerCSS,
   footerCaptionCSS,
   footerCountCSS,
-} from './components/Footer';
+} from './components/Footer'
 
 // Modal
 import {
   blanketCSS,
   dialogCSS,
   positionerCSS,
-} from './components/Modal/styled';
+} from './components/Modal/styled'
 
 type Props = { [key: string]: any };
 type StyleDef = Props => Object;
@@ -64,30 +64,30 @@ export const defaultCarouselStyles: CarouselStyles = {
   navigationPrev: navigationPrevCSS,
   navigationNext: navigationNextCSS,
   view: viewCSS,
-};
+}
 export const defaultModalStyles: CarouselStyles = {
   blanket: blanketCSS,
   dialog: dialogCSS,
   positioner: positionerCSS,
-};
+}
 
 // Merge Utility
 // Allows consumers to extend a base Carousel or Modal with additional styles
 
 export function mergeStyles(source: Object, target: Object = {}) {
   // initialize with source styles
-  const styles = { ...source };
+  const styles = { ...source }
 
   // massage in target styles
   Object.keys(target).forEach(key => {
     if (source[key]) {
       styles[key] = (rsCss, props) => {
-        return target[key](source[key](rsCss, props), props);
-      };
+        return target[key](source[key](rsCss, props), props)
+      }
     } else {
-      styles[key] = target[key];
+      styles[key] = target[key]
     }
-  });
+  })
 
-  return styles;
+  return styles
 }

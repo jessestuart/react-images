@@ -1,6 +1,6 @@
 // @flow
 
-import type { Location, Match, RouterHistory } from 'react-router-dom';
+import type { Location, Match, RouterHistory } from 'react-router-dom'
 
 export type ViewType = { [key: string]: any };
 export type ViewsType = Array<ViewType>;

@@ -1,12 +1,12 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component, Fragment } from 'react';
+import glam from 'glam'
+import React, { Component, Fragment } from 'react'
 
-import { type ProviderProps } from '../../ImageProvider';
-import Carousel, { Modal, ModalGateway } from '../../../src/components';
-import { FooterCaption } from '../components';
-import { getAltText } from '../formatters';
+import { type ProviderProps } from '../../ImageProvider'
+import Carousel, { Modal, ModalGateway } from '../../../src/components'
+import { FooterCaption } from '../components'
+import { getAltText } from '../formatters'
 
 type State = {
   selectedIndex?: number,
@@ -22,11 +22,11 @@ export default class Home extends Component<ProviderProps, State> {
     this.setState(state => ({
       lightboxIsOpen: !state.lightboxIsOpen,
       selectedIndex,
-    }));
+    }))
   };
   render() {
-    const { images, isLoading } = this.props;
-    const { selectedIndex, lightboxIsOpen } = this.state;
+    const { images, isLoading } = this.props
+    const { selectedIndex, lightboxIsOpen } = this.state
     return (
       <Fragment>
         {!isLoading ? (
@@ -63,11 +63,11 @@ export default class Home extends Component<ProviderProps, State> {
           ) : null}
         </ModalGateway>
       </Fragment>
-    );
+    )
   }
 }
 
-const gutter = 2;
+const gutter = 2
 
 const Gallery = (props: any) => (
   <div
@@ -78,7 +78,7 @@ const Gallery = (props: any) => (
     }}
     {...props}
   />
-);
+)
 
 const Image = (props: any) => (
   <div
@@ -98,4 +98,4 @@ const Image = (props: any) => (
     }}
     {...props}
   />
-);
+)

@@ -1,8 +1,8 @@
 // @flow
 
-import React, { type ComponentType } from 'react';
-import { Route } from 'react-router-dom';
-import { type ProviderProps } from './ImageProvider';
+import React, { type ComponentType } from 'react'
+import { Route } from 'react-router-dom'
+import { type ProviderProps } from './ImageProvider'
 
 type Props = ProviderProps & {
   component: ComponentType<*>,
@@ -11,7 +11,7 @@ type Props = ProviderProps & {
 };
 
 const ImageRoute = (props: Props) => {
-  const { component: Component, images, isLoading, ...rest } = props;
+  const { component: Component, images, isLoading, ...rest } = props
 
   return (
     <Route
@@ -20,7 +20,7 @@ const ImageRoute = (props: Props) => {
         <Component images={images} isLoading={isLoading} {...routeProps} />
       )}
     />
-  );
-};
+  )
+}
 
-export default ImageRoute;
+export default ImageRoute

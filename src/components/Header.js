@@ -1,12 +1,12 @@
 // @flow
 // @jsx glam
-import React, { type Node } from 'react';
-import glam from 'glam';
+import React, { type Node } from 'react'
+import glam from 'glam'
 
-import { Button, Div } from '../primitives';
-import { className } from '../utils';
-import type { PropsWithStyles } from '../types';
-import { Close, FullscreenEnter, FullscreenExit } from './svg';
+import { Button, Div } from '../primitives'
+import { className } from '../utils'
+import type { PropsWithStyles } from '../types'
+import { Close, FullscreenEnter, FullscreenExit } from './svg'
 
 type State = { interactionIsIdle: boolean };
 type Props = PropsWithStyles &
@@ -34,7 +34,7 @@ export const headerCSS = ({ interactionIsIdle }: State) => ({
   left: 0,
   right: 0,
   zIndex: 1,
-});
+})
 
 const Header = (props: Props) => {
   const {
@@ -45,19 +45,19 @@ const Header = (props: Props) => {
     innerProps,
     isModal,
     modalProps,
-  } = props;
+  } = props
 
-  if (!isModal) return null;
+  if (!isModal) return null
 
   const {
     allowFullscreen,
     isFullscreen,
     onClose,
     toggleFullscreen,
-  } = modalProps;
-  const FsIcon = isFullscreen ? FullscreenExit : FullscreenEnter;
-  const { CloseButton, FullscreenButton } = components;
-  const state = { isFullscreen, isModal };
+  } = modalProps
+  const FsIcon = isFullscreen ? FullscreenExit : FullscreenEnter
+  const { CloseButton, FullscreenButton } = components
+  const state = { isFullscreen, isModal }
 
   return (
     <Div
@@ -94,8 +94,8 @@ const Header = (props: Props) => {
         </CloseButton>
       </span>
     </Div>
-  );
-};
+  )
+}
 
 // ==============================
 // Header Buttons
@@ -120,11 +120,11 @@ export const headerButtonCSS = () => ({
   '&:hover': {
     color: 'white',
   },
-});
+})
 
-export const headerFullscreenCSS = headerButtonCSS;
+export const headerFullscreenCSS = headerButtonCSS
 export const HeaderFullscreen = (props: ButtonProps) => {
-  const { children, getStyles, innerProps } = props;
+  const { children, getStyles, innerProps } = props
 
   return (
     <Button
@@ -135,12 +135,12 @@ export const HeaderFullscreen = (props: ButtonProps) => {
     >
       {children}
     </Button>
-  );
-};
+  )
+}
 
-export const headerCloseCSS = headerButtonCSS;
+export const headerCloseCSS = headerButtonCSS
 export const HeaderClose = (props: ButtonProps) => {
-  const { children, getStyles, innerProps } = props;
+  const { children, getStyles, innerProps } = props
 
   return (
     <Button
@@ -151,7 +151,7 @@ export const HeaderClose = (props: ButtonProps) => {
     >
       {children}
     </Button>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

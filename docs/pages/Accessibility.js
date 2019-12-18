@@ -1,13 +1,13 @@
 // @flow
 // @jsx glam
-import glam from 'glam';
-import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
+import glam from 'glam'
+import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 
-import Carousel, { Modal, ModalGateway } from '../../src/components';
-import { type ProviderProps } from '../ImageProvider';
+import Carousel, { Modal, ModalGateway } from '../../src/components'
+import { type ProviderProps } from '../ImageProvider'
 
-import { Code, Title } from './components';
+import { Code, Title } from './components'
 
 const Table = props => (
   <table
@@ -18,8 +18,8 @@ const Table = props => (
     }}
     {...props}
   />
-);
-const Cell = props => <td css={{ padding: 4 }} {...props} />;
+)
+const Cell = props => <td css={{ padding: 4 }} {...props} />
 
 type State = {
   currentView?: number,
@@ -35,11 +35,11 @@ export default class Accessibility extends Component<ProviderProps, State> {
     this.setState(state => ({
       lightboxIsOpen: !state.lightboxIsOpen,
       currentView,
-    }));
+    }))
   };
   render() {
-    const { images, isLoading } = this.props;
-    const { currentView, lightboxIsOpen } = this.state;
+    const { images, isLoading } = this.props
+    const { currentView, lightboxIsOpen } = this.state
 
     return (
       <div>
@@ -124,6 +124,6 @@ export default class Accessibility extends Component<ProviderProps, State> {
           ) : null}
         </ModalGateway>
       </div>
-    );
+    )
   }
 }
